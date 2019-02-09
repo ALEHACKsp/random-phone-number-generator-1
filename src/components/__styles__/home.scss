@@ -1,0 +1,29 @@
+@import 'shared';
+.home {
+  margin-left: 1.875rem;
+  
+}
+.header{
+  height: 4rem;
+}
+.search-field{
+  padding: 1rem;
+  width:30%;
+}
+.home > section {
+  padding-top: 2rem;
+}
+.phone-button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  text-align: center;
+  margin-top: 2rem;
+  height: 3.125rem;
+  line-height: 3.125rem;
+  padding: 0 1.75rem;
+  font-size: 0.9375rem;
+  font-weight: 700;
+  width: auto;
+  border-radius: 1rem;
+  color: white;
+}
