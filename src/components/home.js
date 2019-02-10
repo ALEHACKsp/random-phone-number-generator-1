@@ -32,9 +32,8 @@ class Home extends React.Component {
   render() {
     const count = this.state.phoneNumbers.length;
     const { phoneNumbers, currentPage, phoneNumbersPerPage, number } = this.state;
-    console.log(number);
 
-    // Logic for displaying todos
+    // Logic for displaying phone numbers
     const indexOfLastPhoneNumber = currentPage * phoneNumbersPerPage;
     const indexOfFirstPhonenumbers = indexOfLastPhoneNumber - phoneNumbersPerPage;
     const currentPhoneNumbers = phoneNumbers.slice(
