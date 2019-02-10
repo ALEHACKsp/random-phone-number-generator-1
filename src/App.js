@@ -6,6 +6,10 @@ import Navbar from 'components/navbar';
 import './App.scss';
 
 class App extends Component {
+  componentDidMount() {
+    setTimeout(() => console.log('Hello world once'), 0);
+    console.log('Hello world twice');
+  }
   render() {
     return (
       <BrowserRouter>

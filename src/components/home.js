@@ -1,33 +1,62 @@
 import React from 'react';
 import './__styles__/home.scss';
-
-const getRandomPhoneNumber = () => {
-  const generatedNumber = Math.floor(Math.random() * Math.floor(999999999));
-  const phoneNumber = `${0}${generatedNumber}`
-  console.log(phoneNumber);
-  return phoneNumber;
-};
+import PhoneNumber from 'services/PhoneNumber';
 
 class Home extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      phoneNumbers: []
+    };
+  }
+  updatePhoneNumbers = phoneNumbers => {
+    this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] });
+  };
+  componentDidMount() {
+    this.updatePhoneNumbers();
+  }
+
   render() {
     return (
-      <div className="home">
-        <button className="phone-button" onClick={() => getRandomPhoneNumber()}>
-          Generate new phone number
-        </button>
-
+      <div className="container mt-3">
+        <section className="input-group">
+          <input
+            className="form-control"
+            type="text"
+            placeholder="Enter the number of phone numbers to be generated"
+          />
+          <div className="input-group-append">
+            <button
+              className="btn my-button"
+              onClick={() => {
+                PhoneNumber.generate(10);
+                this.updatePhoneNumbers();
+              }}
+            >
+              Generate Phone Numbers
+            </button>
+          </div>
+        </section>
         <section>
           List of phone numbers
           <div className="card">
-            <header className="card-header header">
-              <div className="field is-grouped search-field">
-                <p className="control is-expanded">
-                  <input className="input" type="text" placeholder="Search for a phone number" />
-                </p>
-              </div>
-            </header>
-            <div className="card-content">
-              <div className="content">numbers</div>
+            <div className="card-body card-table">
+              <table className="table table-striped table-bordered table-sm">
+                <thead>
+                  <tr>
+                    <th>Number</th>
+                    <th>Phone Number</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  {this.state.phoneNumbers.map((phoneNumber, index) => (
+                    <tr key={phoneNumber}>
+                      <td>{++index}.</td>
+                      <td>{phoneNumber}</td>
+                    </tr>
+                  ))}
+                </tbody>
+              </table>
             </div>
           </div>
         </section>
