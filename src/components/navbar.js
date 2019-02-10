@@ -4,7 +4,7 @@ import './__styles__/navbar.scss';
 
 const Navbar = () => (
   <nav className="navbar navbar-expand-lg my-nav-bar">
-    <a className="navbar-brand" href="#">
+    <a className="navbar-brand" href="#!">
       Random Phone Number Generator
     </a>
     <button
