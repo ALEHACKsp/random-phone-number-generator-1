@@ -1,0 +1,15 @@
+@import 'shared';
+
+.sort {
+  float: right;
+}
+.select {
+  margin-top: 0.3rem;
+  font-size: 15px;
+  margin-right: 0.3rem;
+}
+.text {
+  font-size: 15px;
+  padding: 5px;
+  color: $primary-color;
+}

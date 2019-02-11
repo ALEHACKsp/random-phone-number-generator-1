@@ -1,13 +1,40 @@
 import React from 'react';
 import './__styles__/home.scss';
 import PhoneNumber from 'services/PhoneNumber';
+import Sorter from './sorter';
 
 class Home extends React.Component {
   state = {
     phoneNumbers: [],
     currentPage: 1,
     phoneNumbersPerPage: 20,
-    number: ''
+    number: '',
+    sorter: 'asc'
+  };
+
+  sortPhoneNumbers = () => {
+    const { sorter, phoneNumbers } = this.state;
+    if (!phoneNumbers.length > 0) return;
+    if (sorter === 'asc') {
+      this.setState({
+        phoneNumbers: phoneNumbers.sort((a, b) => 0 - (a > b ? -1 : 1))
+      });
+    } else {
+      this.setState({
+        phoneNumbers: phoneNumbers.sort((a, b) => 0 - (a > b ? 1 : -1))
+      });
+    }
+  };
+
+  onSortChange = event => {
+    event.preventDefault();
+    const sorter = event.target.value;
+    this.setState(
+      {
+        sorter
+      },
+      () => this.sortPhoneNumbers()
+    );
   };
 
   handleInputChange = event => {
@@ -32,6 +59,7 @@ class Home extends React.Component {
   render() {
     const count = this.state.phoneNumbers.length;
     const { phoneNumbers, currentPage, phoneNumbersPerPage, number } = this.state;
+    console.log(number);
 
     // Logic for displaying phone numbers
     const indexOfLastPhoneNumber = currentPage * phoneNumbersPerPage;
@@ -61,7 +89,7 @@ class Home extends React.Component {
             <button
               className="btn my-button"
               onClick={() => {
-                PhoneNumber.generate(number);
+                PhoneNumber.generate(+number);
                 this.updatePhoneNumbers();
               }}
             >
@@ -73,12 +101,15 @@ class Home extends React.Component {
           List of phone numbers
           <div className="card">
             <div className="card-body card-table">
-              <h5 className="card-title">
-                {phoneNumbers.length > phoneNumbersPerPage
-                  ? `Showing ${phoneNumbersPerPage} out of ${count} phone numbers
+              <div className="card-title">
+                <h5 className="text">
+                  {phoneNumbers.length > phoneNumbersPerPage
+                    ? `Showing ${phoneNumbersPerPage} out of ${count} phone numbers
               `
-                  : null}
-              </h5>
+                    : null}
+                </h5>
+                <Sorter phoneNumbers={phoneNumbers} onChange={this.onSortChange} />
+              </div>
               <table className="table table-striped table-bordered table-sm">
                 <thead>
                   <tr>

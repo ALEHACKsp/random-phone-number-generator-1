@@ -10,9 +10,14 @@ section {
   border-color: $primary-color;
   color: white;
 }
-.card-title {
+.text {
   padding-left: 1rem;
   padding-top: 1rem;
   color: $primary-color;
   font-size: 0.875rem;
+  float: left;
+}
+.card-title {
+  display: inline;
+  padding-top: 1rem;
 }

@@ -6,7 +6,7 @@ class PhoneNumber {
   }
 
   generatePhoneNumber() {
-    return `0${Math.floor(Math.random() * Math.floor(9999999999))}`;
+    return '0' + Math.floor(Math.random() * 900000000 + 100000000)
   }
 
   generate(count) {
