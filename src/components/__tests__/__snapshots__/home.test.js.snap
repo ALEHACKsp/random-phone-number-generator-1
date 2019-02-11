@@ -6,6 +6,7 @@ ShallowWrapper {
   Symbol(enzyme.__unrendered__): <Home
     handleInputChange={[MockFunction]}
     handlePageChange={[MockFunction]}
+    onClick={[MockFunction]}
     updatePhoneNumbers={[MockFunction]}
   />,
   Symbol(enzyme.__renderer__): Object {

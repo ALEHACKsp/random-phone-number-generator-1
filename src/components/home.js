@@ -48,13 +48,13 @@ class Home extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handlePageChange = event => {
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
-  };
+  // handlePageChange = event => {
+  //   this.setState({
+  //     currentPage: Number(event.target.id)
+  //   });
+  // };
 
-  updatePhoneNumbers = () => {
+  updatePhoneNumbers = phoneNumbers => {
     return this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] }, async () => {
       await this.getStatistics();
     });
@@ -116,8 +116,7 @@ class Home extends React.Component {
               <div className="card-title in-line">
                 <h5 className="text">
                   {phoneNumbers.length > phoneNumbersPerPage
-                    ? `Showing ${phoneNumbersPerPage} out of ${total} phone numbers
-              `
+                    ? `Showing ${phoneNumbersPerPage} out of ${total} phone numbers`
                     : null}
                 </h5>
                 <Sorter phoneNumbers={phoneNumbers} onChange={this.onSortChange} />
