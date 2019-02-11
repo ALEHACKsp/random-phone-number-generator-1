@@ -50,11 +50,11 @@ class Home extends React.Component {
 
   handlePageChange = event => {
     this.setState({
-      currentPage: Number(event.target.id + 1)
+      currentPage: Number(event.target.id)
     });
   };
 
-  updatePhoneNumbers = phoneNumbers => {
+  updatePhoneNumbers = () => {
     return this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] }, async () => {
       await this.getStatistics();
     });
@@ -79,15 +79,7 @@ class Home extends React.Component {
   };
 
   render() {
-    const { phoneNumbers, currentPage, phoneNumbersPerPage, number, min, max, total } = this.state;
-
-    // Logic for displaying phone numbers
-    const indexOfLastPhoneNumber = currentPage * phoneNumbersPerPage;
-    const indexOfFirstPhonenumbers = indexOfLastPhoneNumber - phoneNumbersPerPage;
-    const currentPhoneNumbers = phoneNumbers.slice(
-      indexOfFirstPhonenumbers,
-      indexOfLastPhoneNumber
-    );
+    const { phoneNumbers, phoneNumbersPerPage, number, min, max, total } = this.state;
 
     // Logic for displaying page numbers
     const pageNumbers = [];
@@ -129,7 +121,7 @@ class Home extends React.Component {
                     : null}
                 </h5>
                 <Sorter phoneNumbers={phoneNumbers} onChange={this.onSortChange} />
-                <DownloadPhoneNumbers data={phoneNumbers} />
+                {phoneNumbers.length > 0 ? <DownloadPhoneNumbers data={phoneNumbers} /> : null}
               </div>
               <div className="stats">
                 <MinMaxPhoneNumber phoneNumbers={phoneNumbers} min={min} max={max} total={total} />
@@ -142,15 +134,15 @@ class Home extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.phoneNumbers ? (
-                    currentPhoneNumbers.map((phoneNumber, index) => (
+                  {phoneNumbers.length > 0 ? (
+                    phoneNumbers.map((phoneNumber, index) => (
                       <tr key={phoneNumber}>
                         <td>{++index}.</td>
                         <td>{phoneNumber}</td>
                       </tr>
                     ))
                   ) : (
-                    <h5>'No phone numbers to show'</h5>
+                    <span style={{ padding: '10px' }}>No phone numbers yet, generate some</span>
                   )}
                 </tbody>
               </table>
@@ -159,21 +151,21 @@ class Home extends React.Component {
           <nav aria-label="Page navigation example">
             <ul className="pagination">
               <li className="page-item">
-                <a className="page-link" href="#" aria-label="Previous">
+                <a className="page-link" href="#!" aria-label="Previous">
                   <span aria-hidden="true">&laquo;</span>
                   <span className="sr-only">Previous</span>
                 </a>
               </li>
               {pageNumbers.map(number => (
                 <li className="page-item" key={number} id={number} onClick={this.handlePageChange}>
-                  <a className="page-link" href="#">
+                  <a className="page-link" href="#!">
                     {number}
                   </a>
                 </li>
               ))}
 
               <li className="page-item">
-                <a className="page-link" href="#" aria-label="Next">
+                <a className="page-link" href="#!" aria-label="Next">
                   <span aria-hidden="true">&raquo;</span>
                   <span className="sr-only">Next</span>
                 </a>
