@@ -1,7 +1,10 @@
 import React from 'react';
+
 import './__styles__/home.scss';
 import PhoneNumber from 'services/PhoneNumber';
 import Sorter from './sorter';
+import DownloadPhoneNumbers from './downloadNumbers';
+import MinMaxPhoneNumber from './minMax';
 
 class Home extends React.Component {
   state = {
@@ -9,7 +12,10 @@ class Home extends React.Component {
     currentPage: 1,
     phoneNumbersPerPage: 20,
     number: '',
-    sorter: 'asc'
+    sorter: 'asc',
+    min: null,
+    max: null,
+    total: 0
   };
 
   sortPhoneNumbers = () => {
@@ -49,17 +55,31 @@ class Home extends React.Component {
   };
 
   updatePhoneNumbers = phoneNumbers => {
-    this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] });
+    return this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] }, async () => {
+      await this.getStatistics();
+    });
   };
   componentDidMount() {
     this.updatePhoneNumbers();
-    this.setState({ count: this.state.phoneNumbers.length });
+    this.getStatistics();
   }
 
+  getStatistics = () => {
+    const { phoneNumbers } = this.state;
+    if (phoneNumbers.length > 0) {
+      const min = Math.min(...phoneNumbers);
+      const max = Math.max(...phoneNumbers);
+      const total = this.state.phoneNumbers.length;
+      this.setState({
+        min,
+        max,
+        total
+      });
+    }
+  };
+
   render() {
-    const count = this.state.phoneNumbers.length;
-    const { phoneNumbers, currentPage, phoneNumbersPerPage, number } = this.state;
-    console.log(number);
+    const { phoneNumbers, currentPage, phoneNumbersPerPage, number, min, max, total } = this.state;
 
     // Logic for displaying phone numbers
     const indexOfLastPhoneNumber = currentPage * phoneNumbersPerPage;
@@ -101,14 +121,18 @@ class Home extends React.Component {
           List of phone numbers
           <div className="card">
             <div className="card-body card-table">
-              <div className="card-title">
+              <div className="card-title in-line">
                 <h5 className="text">
                   {phoneNumbers.length > phoneNumbersPerPage
-                    ? `Showing ${phoneNumbersPerPage} out of ${count} phone numbers
+                    ? `Showing ${phoneNumbersPerPage} out of ${total} phone numbers
               `
                     : null}
                 </h5>
                 <Sorter phoneNumbers={phoneNumbers} onChange={this.onSortChange} />
+                <DownloadPhoneNumbers data={phoneNumbers} />
+              </div>
+              <div className="stats">
+                <MinMaxPhoneNumber phoneNumbers={phoneNumbers} min={min} max={max} total={total} />
               </div>
               <table className="table table-striped table-bordered table-sm">
                 <thead>
@@ -118,14 +142,16 @@ class Home extends React.Component {
                   </tr>
                 </thead>
                 <tbody>
-                  {this.state.phoneNumbers
-                    ? currentPhoneNumbers.map((phoneNumber, index) => (
-                        <tr key={phoneNumber}>
-                          <td>{++index}.</td>
-                          <td>{phoneNumber}</td>
-                        </tr>
-                      ))
-                    : 'No phone numbers to show'}
+                  {this.state.phoneNumbers ? (
+                    currentPhoneNumbers.map((phoneNumber, index) => (
+                      <tr key={phoneNumber}>
+                        <td>{++index}.</td>
+                        <td>{phoneNumber}</td>
+                      </tr>
+                    ))
+                  ) : (
+                    <h5>'No phone numbers to show'</h5>
+                  )}
                 </tbody>
               </table>
             </div>

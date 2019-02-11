@@ -9,15 +9,28 @@ section {
   background-color: $primary-color;
   border-color: $primary-color;
   color: white;
+  a {
+    color: white;
+    text-decoration: none;
+  }
+  a:hover {
+    color: white !important;
+    text-decoration: none;
+  }
 }
+
 .text {
   padding-left: 1rem;
   padding-top: 1rem;
   color: $primary-color;
   font-size: 0.875rem;
-  float: left;
 }
 .card-title {
   display: inline;
   padding-top: 1rem;
+}
+
+.stats {
+  padding-top: 30px;
+  padding-left: 0.3rem;
 }
