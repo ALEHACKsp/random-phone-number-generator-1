@@ -53,9 +53,27 @@ ShallowWrapper {
             <div
               className="card-body card-table"
             >
-              <h5
-                className="card-title"
-              />
+              <div
+                className="card-title in-line"
+              >
+                <h5
+                  className="text"
+                />
+                <Sorter
+                  onChange={[Function]}
+                  phoneNumbers={Array []}
+                />
+              </div>
+              <div
+                className="stats"
+              >
+                <MinMaxPhoneNumber
+                  max={null}
+                  min={null}
+                  phoneNumbers={Array []}
+                  total={0}
+                />
+              </div>
               <table
                 className="table table-striped table-bordered table-sm"
               >
@@ -69,7 +87,17 @@ ShallowWrapper {
                     </th>
                   </tr>
                 </thead>
-                <tbody />
+                <tbody>
+                  <span
+                    style={
+                      Object {
+                        "padding": "10px",
+                      }
+                    }
+                  >
+                    No phone numbers yet, generate some
+                  </span>
+                </tbody>
               </table>
             </div>
           </div>
@@ -85,7 +113,7 @@ ShallowWrapper {
                 <a
                   aria-label="Previous"
                   className="page-link"
-                  href="#"
+                  href="#!"
                 >
                   <span
                     aria-hidden="true"
@@ -105,7 +133,7 @@ ShallowWrapper {
                 <a
                   aria-label="Next"
                   className="page-link"
-                  href="#"
+                  href="#!"
                 >
                   <span
                     aria-hidden="true"
@@ -217,9 +245,27 @@ ShallowWrapper {
               <div
                 className="card-body card-table"
               >
-                <h5
-                  className="card-title"
-                />
+                <div
+                  className="card-title in-line"
+                >
+                  <h5
+                    className="text"
+                  />
+                  <Sorter
+                    onChange={[Function]}
+                    phoneNumbers={Array []}
+                  />
+                </div>
+                <div
+                  className="stats"
+                >
+                  <MinMaxPhoneNumber
+                    max={null}
+                    min={null}
+                    phoneNumbers={Array []}
+                    total={0}
+                  />
+                </div>
                 <table
                   className="table table-striped table-bordered table-sm"
                 >
@@ -233,7 +279,17 @@ ShallowWrapper {
                       </th>
                     </tr>
                   </thead>
-                  <tbody />
+                  <tbody>
+                    <span
+                      style={
+                        Object {
+                          "padding": "10px",
+                        }
+                      }
+                    >
+                      No phone numbers yet, generate some
+                    </span>
+                  </tbody>
                 </table>
               </div>
             </div>,
@@ -249,7 +305,7 @@ ShallowWrapper {
                   <a
                     aria-label="Previous"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -269,7 +325,7 @@ ShallowWrapper {
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -298,9 +354,27 @@ ShallowWrapper {
               "children": <div
                 className="card-body card-table"
               >
-                <h5
-                  className="card-title"
-                />
+                <div
+                  className="card-title in-line"
+                >
+                  <h5
+                    className="text"
+                  />
+                  <Sorter
+                    onChange={[Function]}
+                    phoneNumbers={Array []}
+                  />
+                </div>
+                <div
+                  className="stats"
+                >
+                  <MinMaxPhoneNumber
+                    max={null}
+                    min={null}
+                    phoneNumbers={Array []}
+                    total={0}
+                  />
+                </div>
                 <table
                   className="table table-striped table-bordered table-sm"
                 >
@@ -314,7 +388,17 @@ ShallowWrapper {
                       </th>
                     </tr>
                   </thead>
-                  <tbody />
+                  <tbody>
+                    <span
+                      style={
+                        Object {
+                          "padding": "10px",
+                        }
+                      }
+                    >
+                      No phone numbers yet, generate some
+                    </span>
+                  </tbody>
                 </table>
               </div>,
               "className": "card",
@@ -326,9 +410,27 @@ ShallowWrapper {
               "nodeType": "host",
               "props": Object {
                 "children": Array [
-                  <h5
-                    className="card-title"
-                  />,
+                  <div
+                    className="card-title in-line"
+                  >
+                    <h5
+                      className="text"
+                    />
+                    <Sorter
+                      onChange={[Function]}
+                      phoneNumbers={Array []}
+                    />
+                  </div>,
+                  <div
+                    className="stats"
+                  >
+                    <MinMaxPhoneNumber
+                      max={null}
+                      min={null}
+                      phoneNumbers={Array []}
+                      total={0}
+                    />
+                  </div>,
                   <table
                     className="table table-striped table-bordered table-sm"
                   >
@@ -342,7 +444,17 @@ ShallowWrapper {
                         </th>
                       </tr>
                     </thead>
-                    <tbody />
+                    <tbody>
+                      <span
+                        style={
+                          Object {
+                            "padding": "10px",
+                          }
+                        }
+                      >
+                        No phone numbers yet, generate some
+                      </span>
+                    </tbody>
                   </table>,
                 ],
                 "className": "card-body card-table",
@@ -354,12 +466,77 @@ ShallowWrapper {
                   "key": undefined,
                   "nodeType": "host",
                   "props": Object {
-                    "children": null,
-                    "className": "card-title",
+                    "children": Array [
+                      <h5
+                        className="text"
+                      />,
+                      <Sorter
+                        onChange={[Function]}
+                        phoneNumbers={Array []}
+                      />,
+                      null,
+                    ],
+                    "className": "card-title in-line",
                   },
                   "ref": null,
-                  "rendered": null,
-                  "type": "h5",
+                  "rendered": Array [
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "host",
+                      "props": Object {
+                        "children": null,
+                        "className": "text",
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": "h5",
+                    },
+                    Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "onChange": [Function],
+                        "phoneNumbers": Array [],
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    null,
+                  ],
+                  "type": "div",
+                },
+                Object {
+                  "instance": null,
+                  "key": undefined,
+                  "nodeType": "host",
+                  "props": Object {
+                    "children": <MinMaxPhoneNumber
+                      max={null}
+                      min={null}
+                      phoneNumbers={Array []}
+                      total={0}
+                    />,
+                    "className": "stats",
+                  },
+                  "ref": null,
+                  "rendered": Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "function",
+                    "props": Object {
+                      "max": null,
+                      "min": null,
+                      "phoneNumbers": Array [],
+                      "total": 0,
+                    },
+                    "ref": null,
+                    "rendered": null,
+                    "type": [Function],
+                  },
+                  "type": "div",
                 },
                 Object {
                   "instance": null,
@@ -377,7 +554,17 @@ ShallowWrapper {
                           </th>
                         </tr>
                       </thead>,
-                      <tbody />,
+                      <tbody>
+                        <span
+                          style={
+                            Object {
+                              "padding": "10px",
+                            }
+                          }
+                        >
+                          No phone numbers yet, generate some
+                        </span>
+                      </tbody>,
                     ],
                     "className": "table table-striped table-bordered table-sm",
                   },
@@ -446,10 +633,31 @@ ShallowWrapper {
                       "key": undefined,
                       "nodeType": "host",
                       "props": Object {
-                        "children": Array [],
+                        "children": <span
+                          style={
+                            Object {
+                              "padding": "10px",
+                            }
+                          }
+                        >
+                          No phone numbers yet, generate some
+                        </span>,
                       },
                       "ref": null,
-                      "rendered": Array [],
+                      "rendered": Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": "No phone numbers yet, generate some",
+                          "style": Object {
+                            "padding": "10px",
+                          },
+                        },
+                        "ref": null,
+                        "rendered": "No phone numbers yet, generate some",
+                        "type": "span",
+                      },
                       "type": "tbody",
                     },
                   ],
@@ -475,7 +683,7 @@ ShallowWrapper {
                   <a
                     aria-label="Previous"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -495,7 +703,7 @@ ShallowWrapper {
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -524,7 +732,7 @@ ShallowWrapper {
                     <a
                       aria-label="Previous"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -545,7 +753,7 @@ ShallowWrapper {
                     <a
                       aria-label="Next"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -572,7 +780,7 @@ ShallowWrapper {
                     "children": <a
                       aria-label="Previous"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -607,7 +815,7 @@ ShallowWrapper {
                         </span>,
                       ],
                       "className": "page-link",
-                      "href": "#",
+                      "href": "#!",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -648,7 +856,7 @@ ShallowWrapper {
                     "children": <a
                       aria-label="Next"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -683,7 +891,7 @@ ShallowWrapper {
                         </span>,
                       ],
                       "className": "page-link",
-                      "href": "#",
+                      "href": "#!",
                     },
                     "ref": null,
                     "rendered": Array [
@@ -764,9 +972,27 @@ ShallowWrapper {
               <div
                 className="card-body card-table"
               >
-                <h5
-                  className="card-title"
-                />
+                <div
+                  className="card-title in-line"
+                >
+                  <h5
+                    className="text"
+                  />
+                  <Sorter
+                    onChange={[Function]}
+                    phoneNumbers={Array []}
+                  />
+                </div>
+                <div
+                  className="stats"
+                >
+                  <MinMaxPhoneNumber
+                    max={null}
+                    min={null}
+                    phoneNumbers={Array []}
+                    total={0}
+                  />
+                </div>
                 <table
                   className="table table-striped table-bordered table-sm"
                 >
@@ -780,7 +1006,17 @@ ShallowWrapper {
                       </th>
                     </tr>
                   </thead>
-                  <tbody />
+                  <tbody>
+                    <span
+                      style={
+                        Object {
+                          "padding": "10px",
+                        }
+                      }
+                    >
+                      No phone numbers yet, generate some
+                    </span>
+                  </tbody>
                 </table>
               </div>
             </div>
@@ -796,7 +1032,7 @@ ShallowWrapper {
                   <a
                     aria-label="Previous"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -816,7 +1052,7 @@ ShallowWrapper {
                   <a
                     aria-label="Next"
                     className="page-link"
-                    href="#"
+                    href="#!"
                   >
                     <span
                       aria-hidden="true"
@@ -928,9 +1164,27 @@ ShallowWrapper {
                 <div
                   className="card-body card-table"
                 >
-                  <h5
-                    className="card-title"
-                  />
+                  <div
+                    className="card-title in-line"
+                  >
+                    <h5
+                      className="text"
+                    />
+                    <Sorter
+                      onChange={[Function]}
+                      phoneNumbers={Array []}
+                    />
+                  </div>
+                  <div
+                    className="stats"
+                  >
+                    <MinMaxPhoneNumber
+                      max={null}
+                      min={null}
+                      phoneNumbers={Array []}
+                      total={0}
+                    />
+                  </div>
                   <table
                     className="table table-striped table-bordered table-sm"
                   >
@@ -944,7 +1198,17 @@ ShallowWrapper {
                         </th>
                       </tr>
                     </thead>
-                    <tbody />
+                    <tbody>
+                      <span
+                        style={
+                          Object {
+                            "padding": "10px",
+                          }
+                        }
+                      >
+                        No phone numbers yet, generate some
+                      </span>
+                    </tbody>
                   </table>
                 </div>
               </div>,
@@ -960,7 +1224,7 @@ ShallowWrapper {
                     <a
                       aria-label="Previous"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -980,7 +1244,7 @@ ShallowWrapper {
                     <a
                       aria-label="Next"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -1009,9 +1273,27 @@ ShallowWrapper {
                 "children": <div
                   className="card-body card-table"
                 >
-                  <h5
-                    className="card-title"
-                  />
+                  <div
+                    className="card-title in-line"
+                  >
+                    <h5
+                      className="text"
+                    />
+                    <Sorter
+                      onChange={[Function]}
+                      phoneNumbers={Array []}
+                    />
+                  </div>
+                  <div
+                    className="stats"
+                  >
+                    <MinMaxPhoneNumber
+                      max={null}
+                      min={null}
+                      phoneNumbers={Array []}
+                      total={0}
+                    />
+                  </div>
                   <table
                     className="table table-striped table-bordered table-sm"
                   >
@@ -1025,7 +1307,17 @@ ShallowWrapper {
                         </th>
                       </tr>
                     </thead>
-                    <tbody />
+                    <tbody>
+                      <span
+                        style={
+                          Object {
+                            "padding": "10px",
+                          }
+                        }
+                      >
+                        No phone numbers yet, generate some
+                      </span>
+                    </tbody>
                   </table>
                 </div>,
                 "className": "card",
@@ -1037,9 +1329,27 @@ ShallowWrapper {
                 "nodeType": "host",
                 "props": Object {
                   "children": Array [
-                    <h5
-                      className="card-title"
-                    />,
+                    <div
+                      className="card-title in-line"
+                    >
+                      <h5
+                        className="text"
+                      />
+                      <Sorter
+                        onChange={[Function]}
+                        phoneNumbers={Array []}
+                      />
+                    </div>,
+                    <div
+                      className="stats"
+                    >
+                      <MinMaxPhoneNumber
+                        max={null}
+                        min={null}
+                        phoneNumbers={Array []}
+                        total={0}
+                      />
+                    </div>,
                     <table
                       className="table table-striped table-bordered table-sm"
                     >
@@ -1053,7 +1363,17 @@ ShallowWrapper {
                           </th>
                         </tr>
                       </thead>
-                      <tbody />
+                      <tbody>
+                        <span
+                          style={
+                            Object {
+                              "padding": "10px",
+                            }
+                          }
+                        >
+                          No phone numbers yet, generate some
+                        </span>
+                      </tbody>
                     </table>,
                   ],
                   "className": "card-body card-table",
@@ -1065,12 +1385,77 @@ ShallowWrapper {
                     "key": undefined,
                     "nodeType": "host",
                     "props": Object {
-                      "children": null,
-                      "className": "card-title",
+                      "children": Array [
+                        <h5
+                          className="text"
+                        />,
+                        <Sorter
+                          onChange={[Function]}
+                          phoneNumbers={Array []}
+                        />,
+                        null,
+                      ],
+                      "className": "card-title in-line",
                     },
                     "ref": null,
-                    "rendered": null,
-                    "type": "h5",
+                    "rendered": Array [
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "host",
+                        "props": Object {
+                          "children": null,
+                          "className": "text",
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": "h5",
+                      },
+                      Object {
+                        "instance": null,
+                        "key": undefined,
+                        "nodeType": "function",
+                        "props": Object {
+                          "onChange": [Function],
+                          "phoneNumbers": Array [],
+                        },
+                        "ref": null,
+                        "rendered": null,
+                        "type": [Function],
+                      },
+                      null,
+                    ],
+                    "type": "div",
+                  },
+                  Object {
+                    "instance": null,
+                    "key": undefined,
+                    "nodeType": "host",
+                    "props": Object {
+                      "children": <MinMaxPhoneNumber
+                        max={null}
+                        min={null}
+                        phoneNumbers={Array []}
+                        total={0}
+                      />,
+                      "className": "stats",
+                    },
+                    "ref": null,
+                    "rendered": Object {
+                      "instance": null,
+                      "key": undefined,
+                      "nodeType": "function",
+                      "props": Object {
+                        "max": null,
+                        "min": null,
+                        "phoneNumbers": Array [],
+                        "total": 0,
+                      },
+                      "ref": null,
+                      "rendered": null,
+                      "type": [Function],
+                    },
+                    "type": "div",
                   },
                   Object {
                     "instance": null,
@@ -1088,7 +1473,17 @@ ShallowWrapper {
                             </th>
                           </tr>
                         </thead>,
-                        <tbody />,
+                        <tbody>
+                          <span
+                            style={
+                              Object {
+                                "padding": "10px",
+                              }
+                            }
+                          >
+                            No phone numbers yet, generate some
+                          </span>
+                        </tbody>,
                       ],
                       "className": "table table-striped table-bordered table-sm",
                     },
@@ -1157,10 +1552,31 @@ ShallowWrapper {
                         "key": undefined,
                         "nodeType": "host",
                         "props": Object {
-                          "children": Array [],
+                          "children": <span
+                            style={
+                              Object {
+                                "padding": "10px",
+                              }
+                            }
+                          >
+                            No phone numbers yet, generate some
+                          </span>,
                         },
                         "ref": null,
-                        "rendered": Array [],
+                        "rendered": Object {
+                          "instance": null,
+                          "key": undefined,
+                          "nodeType": "host",
+                          "props": Object {
+                            "children": "No phone numbers yet, generate some",
+                            "style": Object {
+                              "padding": "10px",
+                            },
+                          },
+                          "ref": null,
+                          "rendered": "No phone numbers yet, generate some",
+                          "type": "span",
+                        },
                         "type": "tbody",
                       },
                     ],
@@ -1186,7 +1602,7 @@ ShallowWrapper {
                     <a
                       aria-label="Previous"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -1206,7 +1622,7 @@ ShallowWrapper {
                     <a
                       aria-label="Next"
                       className="page-link"
-                      href="#"
+                      href="#!"
                     >
                       <span
                         aria-hidden="true"
@@ -1235,7 +1651,7 @@ ShallowWrapper {
                       <a
                         aria-label="Previous"
                         className="page-link"
-                        href="#"
+                        href="#!"
                       >
                         <span
                           aria-hidden="true"
@@ -1256,7 +1672,7 @@ ShallowWrapper {
                       <a
                         aria-label="Next"
                         className="page-link"
-                        href="#"
+                        href="#!"
                       >
                         <span
                           aria-hidden="true"
@@ -1283,7 +1699,7 @@ ShallowWrapper {
                       "children": <a
                         aria-label="Previous"
                         className="page-link"
-                        href="#"
+                        href="#!"
                       >
                         <span
                           aria-hidden="true"
@@ -1318,7 +1734,7 @@ ShallowWrapper {
                           </span>,
                         ],
                         "className": "page-link",
-                        "href": "#",
+                        "href": "#!",
                       },
                       "ref": null,
                       "rendered": Array [
@@ -1359,7 +1775,7 @@ ShallowWrapper {
                       "children": <a
                         aria-label="Next"
                         className="page-link"
-                        href="#"
+                        href="#!"
                       >
                         <span
                           aria-hidden="true"
@@ -1394,7 +1810,7 @@ ShallowWrapper {
                           </span>,
                         ],
                         "className": "page-link",
-                        "href": "#",
+                        "href": "#!",
                       },
                       "ref": null,
                       "rendered": Array [
