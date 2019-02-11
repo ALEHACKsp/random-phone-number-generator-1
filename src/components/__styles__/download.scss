@@ -1,0 +1,19 @@
+@import 'shared';
+
+.download-button {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  float: right;
+  margin-right: 0.3rem;
+  padding-top: 5px;
+  margin-top: 0px;
+  margin-bottom: 10px;
+}
+a {
+  color: white;
+  text-decoration: none;
+}
+a:hover {
+  color: white;
+  text-decoration: none;
+}
