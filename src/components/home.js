@@ -6,6 +6,7 @@ import Sorter from './sorter';
 import DownloadPhoneNumbers from './downloadNumbers';
 import MinMaxPhoneNumber from './minMax';
 
+const phoneNumber = new PhoneNumber();
 class Home extends React.Component {
   state = {
     phoneNumbers: [],
@@ -55,7 +56,8 @@ class Home extends React.Component {
   // };
 
   updatePhoneNumbers = phoneNumbers => {
-    return this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] }, async () => {
+    const phoneNumber = new PhoneNumber();
+    return this.setState({ phoneNumbers: [...phoneNumber.storage.all().values()] }, async () => {
       await this.getStatistics();
     });
   };
@@ -80,6 +82,7 @@ class Home extends React.Component {
 
   render() {
     const { phoneNumbers, phoneNumbersPerPage, number, min, max, total } = this.state;
+    
 
     // Logic for displaying page numbers
     const pageNumbers = [];
@@ -101,7 +104,7 @@ class Home extends React.Component {
             <button
               className="btn my-button"
               onClick={() => {
-                PhoneNumber.generate(+number);
+                phoneNumber.generate(+number);
                 this.updatePhoneNumbers();
               }}
             >

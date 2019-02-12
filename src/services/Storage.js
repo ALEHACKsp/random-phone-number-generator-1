@@ -1,4 +1,6 @@
-const PHONE_NUMBER_KEY = 'PHONE_NUMBER_KEY';
+import { resolve } from 'url';
+
+export const PHONE_NUMBER_KEY = 'PHONE_NUMBER_KEY';
 
 class Storage {
   constructor() {
@@ -13,7 +15,7 @@ class Storage {
   }
 
   exists(phoneNumber) {
-    this.phoneNumbers.has(phoneNumber);
+    return this.phoneNumbers.has(phoneNumber);
   }
 
   remove(phoneNumber) {
@@ -22,9 +24,10 @@ class Storage {
   }
 
   persist() {
-    setTimeout(() => {
+    return new Promise(resolve => {
       localStorage.setItem(PHONE_NUMBER_KEY, JSON.stringify([...this.phoneNumbers.values()]));
-    }, 0);
+      resolve();
+    });
   }
   all() {
     return this.phoneNumbers;

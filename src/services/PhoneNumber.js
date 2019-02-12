@@ -22,4 +22,4 @@ class PhoneNumber {
   }
 }
 
-export default new PhoneNumber();
+export default  PhoneNumber;
