@@ -2,7 +2,7 @@
 Generates random phone numbers for a telecommunications company
 
 [![Build Status](https://travis-ci.org/hadijahkyampeire/random-phone-number-generator.svg?branch=master)](https://travis-ci.org/hadijahkyampeire/random-phone-number-generator)
-[![Coverage Status](https://coveralls.io/repos/github/hadijahkyampeire/random-phone-number-generator/badge.svg?branch=tests)](https://coveralls.io/github/hadijahkyampeire/random-phone-number-generator?branch=tests)
+[![Coverage Status](https://coveralls.io/repos/github/hadijahkyampeire/random-phone-number-generator/badge.svg?branch=master)](https://coveralls.io/github/hadijahkyampeire/random-phone-number-generator?branch=master)
 
 The application indicates the total number of phone numbers generated and the list of numbers anytime. While treating the phone numbers as integers,it also allows one to sort all generated numbers in ascending/descending order as well as find the max and min generated number.
 
