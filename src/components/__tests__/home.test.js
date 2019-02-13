@@ -70,36 +70,5 @@ describe('Home Component', () => {
     expect(generatePhoneSpy).toHaveBeenCalled();
   });
 
-  it('displays a text if for the phone numbers available on the page and in storage', () => {
-    node.setState({
-      phoneNumbers: [
-        '0536043541',
-        '0284877595',
-        '0327960947',
-        '0355233349',
-        '0644171347',
-        '0681987800',
-        '0371922290',
-        '0616086999',
-        '0124821253',
-        '0405702601',
-        '0536043541',
-        '0284877595',
-        '0327960947',
-        '0355233349',
-        '0644171347',
-        '0681987800',
-        '0371922290',
-        '0616086999',
-        '0124821253',
-        '0405702601',
-        '0987654321',
-        '0789654321',
-        '09876754321'
-      ]
-    });
-    instance.getStatistics();
-    const state = node.state();
-    expect(node.find('h5').text()).toEqual(`Showing 20 out of ${state.total} phone numbers`);
-  });
+  
 });

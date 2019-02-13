@@ -1,7 +1,4 @@
-import { resolve } from 'url';
-
 export const PHONE_NUMBER_KEY = 'PHONE_NUMBER_KEY';
-
 class Storage {
   constructor() {
     const numbers = JSON.parse(window.localStorage.getItem(PHONE_NUMBER_KEY)) || [];
