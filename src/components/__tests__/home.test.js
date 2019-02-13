@@ -1,14 +1,17 @@
 import React from 'react';
 import enzyme from 'enzyme';
 import Home from '../home';
+import PhoneNumber from 'services/PhoneNumber';
 
+const phoneNumber = new PhoneNumber();
 describe('Home Component', () => {
   let instance;
   let node;
   const props = {
     handleInputChange: jest.fn(),
     handlePageChange: jest.fn(),
-    updatePhoneNumbers: jest.fn()
+    updatePhoneNumbers: jest.fn(),
+    generatePhones: jest.fn()
   };
 
   const updatePhoneNumbers = jest.fn();
@@ -25,6 +28,22 @@ describe('Home Component', () => {
     expect(
       node.find('[name="number"]').simulate('change', { target: { name: 'number', value: 6 } })
     );
+  });
+
+  it('should throw an error if no number is input', () => {
+    node.setState({ number: -1 });
+    instance.generatePhones();
+    const state = node.state();
+    expect(state.number).toEqual(-1);
+    expect(state.error).toBe(true);
+    expect(state.message).toBe('The number entered exceeds/below the accepted limit');
+  });
+
+  it('should call the generate method if all is fine', () => {
+    node.setState({ number: 20 });
+    instance.generatePhones();
+    const state = node.state();
+    expect(state.number).toEqual(20);
   });
 
   it('should update stats for minimum and maximum', () => {
@@ -69,6 +88,4 @@ describe('Home Component', () => {
       .simulate('click');
     expect(generatePhoneSpy).toHaveBeenCalled();
   });
-
-  
 });
