@@ -48,7 +48,23 @@ class Home extends React.Component {
     this.setState({ [name]: value });
   };
 
-  updatePhoneNumbers = phoneNumbers => {
+  generatePhones = () => {
+    const { number } = this.state;
+    if (!number) {
+      this.setState({
+        error: true,
+        message: 'Enter a number please'
+      });
+    } else if (number <= 0 || number > 10000) {
+      this.setState({
+        error: true,
+        message: 'The number entered exceeds/below the accepted limit'
+      });
+    } else {
+      phoneNumber.generate(+number);
+    }
+  };
+  updatePhoneNumbers = () => {
     const phoneNumber = new PhoneNumber();
     return this.setState({ phoneNumbers: [...phoneNumber.storage.all().values()] }, async () => {
       await this.getStatistics();
@@ -92,19 +108,12 @@ class Home extends React.Component {
             <button
               className="btn my-button"
               onClick={() => {
-                number <= 0
+                total > 10000
                   ? this.setState({
                       error: true,
-                      message:
-                        'Yoc can not generate negative numbers or 0'
+                      message: 'You are trying to exceed the accepted limit, remove some'
                     })
-                  : total >= 10000
-                  ? this.setState({
-                      error: true,
-                      message:
-                        'The total numbers exceed the accepted limit in the storage, remove some'
-                    })
-                  : phoneNumber.generate(+number);
+                  : this.generatePhones();
                 this.updatePhoneNumbers();
               }}
             >
