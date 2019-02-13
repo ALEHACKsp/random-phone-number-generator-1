@@ -5,12 +5,12 @@ import PhoneNumber from 'services/PhoneNumber';
 import Sorter from './sorter';
 import DownloadPhoneNumbers from './downloadNumbers';
 import MinMaxPhoneNumber from './minMax';
+import Error from './error';
 
+const phoneNumber = new PhoneNumber();
 class Home extends React.Component {
   state = {
     phoneNumbers: [],
-    currentPage: 1,
-    phoneNumbersPerPage: 20,
     number: '',
     sorter: 'asc',
     min: null,
@@ -48,14 +48,9 @@ class Home extends React.Component {
     this.setState({ [name]: value });
   };
 
-  handlePageChange = event => {
-    this.setState({
-      currentPage: Number(event.target.id)
-    });
-  };
-
-  updatePhoneNumbers = () => {
-    return this.setState({ phoneNumbers: [...PhoneNumber.storage.all().values()] }, async () => {
+  updatePhoneNumbers = phoneNumbers => {
+    const phoneNumber = new PhoneNumber();
+    return this.setState({ phoneNumbers: [...phoneNumber.storage.all().values()] }, async () => {
       await this.getStatistics();
     });
   };
@@ -79,13 +74,9 @@ class Home extends React.Component {
   };
 
   render() {
-    const { phoneNumbers, phoneNumbersPerPage, number, min, max, total } = this.state;
+    const { phoneNumbers, number, min, max, total, error, message } = this.state;
+    const difference = 10000 - total;
 
-    // Logic for displaying page numbers
-    const pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(phoneNumbers.length / phoneNumbersPerPage); i++) {
-      pageNumbers.push(i);
-    }
     return (
       <div className="container mt-3">
         <section className="input-group">
@@ -93,7 +84,7 @@ class Home extends React.Component {
             className="form-control"
             type="number"
             name="number"
-            placeholder="Enter the number of phone numbers to be generated"
+            placeholder={`You can only generate ${difference} phone numbers, so as not to exceed the limit`}
             value={number}
             onChange={this.handleInputChange}
           />
@@ -101,7 +92,19 @@ class Home extends React.Component {
             <button
               className="btn my-button"
               onClick={() => {
-                PhoneNumber.generate(+number);
+                number <= 0
+                  ? this.setState({
+                      error: true,
+                      message:
+                        'Yoc can not generate negative numbers or 0'
+                    })
+                  : total >= 10000
+                  ? this.setState({
+                      error: true,
+                      message:
+                        'The total numbers exceed the accepted limit in the storage, remove some'
+                    })
+                  : phoneNumber.generate(+number);
                 this.updatePhoneNumbers();
               }}
             >
@@ -109,17 +112,12 @@ class Home extends React.Component {
             </button>
           </div>
         </section>
+        <Error error={error} message={message} />
         <section>
           List of phone numbers
           <div className="card">
             <div className="card-body card-table">
               <div className="card-title in-line">
-                <h5 className="text">
-                  {phoneNumbers.length > phoneNumbersPerPage
-                    ? `Showing ${phoneNumbersPerPage} out of ${total} phone numbers
-              `
-                    : null}
-                </h5>
                 <Sorter phoneNumbers={phoneNumbers} onChange={this.onSortChange} />
                 {phoneNumbers.length > 0 ? <DownloadPhoneNumbers data={phoneNumbers} /> : null}
               </div>
@@ -148,30 +146,6 @@ class Home extends React.Component {
               </table>
             </div>
           </div>
-          <nav aria-label="Page navigation example">
-            <ul className="pagination">
-              <li className="page-item">
-                <a className="page-link" href="#!" aria-label="Previous">
-                  <span aria-hidden="true">&laquo;</span>
-                  <span className="sr-only">Previous</span>
-                </a>
-              </li>
-              {pageNumbers.map(number => (
-                <li className="page-item" key={number} id={number} onClick={this.handlePageChange}>
-                  <a className="page-link" href="#!">
-                    {number}
-                  </a>
-                </li>
-              ))}
-
-              <li className="page-item">
-                <a className="page-link" href="#!" aria-label="Next">
-                  <span aria-hidden="true">&raquo;</span>
-                  <span className="sr-only">Next</span>
-                </a>
-              </li>
-            </ul>
-          </nav>
         </section>
       </div>
     );
